@@ -1,0 +1,86 @@
+Design
+
+Hub island leads to multiple types of ways to progress.
+Each progression type has an infinitly large world and is used to progress a certain skill.
+
+Dungeon crawler - combat
+Open world - exploration
+Merchants - trade/money
+etc
+
+Party system
+
+Command to party other players in server
+Creating a party allows players to play in the same world and level up skills together.
+
+Global system
+
+Leaderboards for money and levels
+Allows players to fight against each other for pvp exp (maybe)
+
+Map generation system
+
+Dungeon crawler: use an algorithm to generate dungeons and populate with mobs, loot chests, npcs, etc.
+Open world: psuedorandom generated biomes with mobs, villages, and items. Night/day cycle and weather.
+Merchants: Manual set up, small island
+
+Combat system
+
+turn based,
+you can use items,
+use skills learned from warrior merchants.
+
+Map to text system
+
+Generate visible map using player location and real map.
+
+
+
+CODE ARCHITECTURE
+
+3 parts
+
+Profile => Summarizes values, gold, name, xp
+
+    Systems => Game engine
+        Movement
+        Interaction
+            Combat
+            Dialogue
+        Display => Displays data using discord.js
+    Containers => Store simple data
+        Money
+        Worlds
+        Players
+        Combat
+        Skills
+    
+Loaders => Loads stuff from database into profile
+
+Config
+    Skills
+        Name
+        Damage
+        Status Modifiers
+        Descriptions
+    Items
+        Weapons
+            Name
+            Description
+            Damage Modifier
+        Armor
+            Name
+            Description
+            Damage Modifier
+            Status Modifiers
+        Usables
+            Health Modifiers (Health pots, food)
+            Damage Modifiers (Strength Potions)
+            Status Modifiers (Speed Potions)
+
+DB
+    Players
+        Name
+        XP (Level is based off of XP, so we don't need Levels)
+        Skills
+
